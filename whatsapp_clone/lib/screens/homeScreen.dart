@@ -12,7 +12,6 @@ class HomeScreenState extends State<HomeScreen>{
     return Scaffold(
       appBar: AppBar(
         title: Text("WhatsApp",textDirection: TextDirection.ltr,),
-      backgroundColor: Colors.green,
       ),
       body: Container(
         child: Center(
