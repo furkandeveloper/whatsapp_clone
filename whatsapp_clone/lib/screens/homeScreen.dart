@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/screens/callScreen.dart';
+import 'package:whatsapp_clone/screens/chatScreen.dart';
+import 'package:whatsapp_clone/screens/statusScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -13,7 +16,7 @@ class HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, initialIndex: 1, vsync: this);
+    _tabController = TabController(length: 3, initialIndex: 0, vsync: this);
   }
 
   @override
@@ -28,9 +31,6 @@ class HomeScreenState extends State<HomeScreen>
           controller: _tabController,
           indicatorColor: Colors.white,
           tabs: <Widget>[
-            Tab(
-              icon: Icon(Icons.camera_alt),
-            ),
             Tab(text: "Sohbet"),
             Tab(text: "Durum"),
             Tab(text: "Aramalar"),
@@ -41,10 +41,9 @@ class HomeScreenState extends State<HomeScreen>
       body: TabBarView(
         controller: _tabController,
         children: <Widget>[
-          Text("Kamera"),
-          Text("Sohbet"),
-          Text("Durum"),
-          Text("Aramalar")
+          ChatScreen(),
+          StatusScreen(),
+          CallScreen()
         ],
       ),
       floatingActionButton: FloatingActionButton(
